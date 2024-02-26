@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +25,7 @@ public class Produto implements Serializable {
   private String nome;
   private Double preco;
 
+  @JsonBackReference
   @ManyToMany
   @JoinTable(
     name = "PRODUTO_CATEGORIA",
@@ -75,7 +77,6 @@ public class Produto implements Serializable {
 
   @Override
   public int hashCode() {
-    // TODO Auto-generated method stub
     return super.hashCode();
   }
 }
